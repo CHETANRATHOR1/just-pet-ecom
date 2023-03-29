@@ -4,7 +4,7 @@ import './CommonButton.css'
 
 interface Props {
   title:string,
-  click?:()=>void,
+  // click?:()=>void,
   type?:string,
   shouldDisable?:boolean
 }
@@ -22,7 +22,7 @@ const  CommonButton =  (props:Props) => {
   return (
     <div className=''>
       <ThemeProvider theme={theme}>
-      <Button disabled={props.shouldDisable} className='button__style' type='submit' onClick={props.click} variant="contained" color="primary">
+      <Button disabled={props.shouldDisable} className='button__style' type='submit'  variant="contained" color="primary">
        {props.title}
       </Button>
     </ThemeProvider>
