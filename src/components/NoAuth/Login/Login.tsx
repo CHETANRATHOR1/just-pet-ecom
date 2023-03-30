@@ -1,4 +1,5 @@
 import { Button } from '@mui/material'
+import CommonModal from '../../common/Modal/Modal'
 import React from 'react'
 import CommonButton from '../../common/Button/CommonButton'
 import InputFiels, { fieldData } from '../../common/InputField/InputField'
@@ -24,9 +25,9 @@ const Login = () => {
     
 
     <div style={{width:'300px',margin:'100px'}} className="container">
-
+    <CommonModal> <h1>dsd</h1> </CommonModal>
    {/* <CommonButton shouldDisable={false} title='Sign Up' click={handelClick}></CommonButton> */}
-   <InputFiels inputTextFieldData={fieldData}></InputFiels>
+   {/* <InputFiels inputTextFieldData={fieldData}></InputFiels> */}
     </div>
 
 
