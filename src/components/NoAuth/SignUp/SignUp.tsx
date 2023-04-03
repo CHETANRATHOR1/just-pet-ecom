@@ -5,10 +5,10 @@ import CommonButton from "../../common/Button/CommonButton";
 import InputField from "../../common/InputField/InputField";
 import * as yup from "yup";
 import { ErrorMessage, useFormik } from "formik";
-import {fieldData} from '../../../interface/Noauth/InputFields-signup-signin'
-import './Login.css'
+
 const validadation = yup.object({
   email: yup.string().email().required("This field is required"),
+  fullname: yup.string().required("This field is required"),
   password: yup.string().min(8).required("This field is required"),
 });
 
@@ -17,17 +17,27 @@ const SignUp: React.FC = () => {
     initialValues: {
       email:'',
       password:'',
+      fullname:'',
     },
     validationSchema:validadation,
-   
-  
     onSubmit: (values) => {
      console.log(values);
-     
     },
     
   });
-  const inputFields:fieldData[] = [
+  const inputFields = [
+    {
+      id: "fullname",
+      label: "Full Name",
+      type: "text",
+      name: "fullname",
+      placeholder: "Full Name",
+      onChange:formik.handleChange,
+      value:formik.values.fullname,
+      helperText:formik.errors.fullname,
+      error:Boolean(formik.errors.fullname),
+
+    },
     {
       id: "email",
       label: "Email",
@@ -37,7 +47,7 @@ const SignUp: React.FC = () => {
       onChange:formik.handleChange,
       value:formik.values.email,
       helperText:formik.errors.email,
-      errors:Boolean(formik.errors.email),
+      error:Boolean(formik.errors.email),
 
     },
     {
@@ -46,16 +56,17 @@ const SignUp: React.FC = () => {
       type: "password",
       name: "password",
       placeholder: "Password",
-
       onChange:formik.handleChange,
       value:formik.values.password,
       helperText:formik.errors.password,
-      errors:Boolean(formik.errors.password),
+      error:Boolean(formik.errors.password),
 
 
     },
   ];
  
+console.log(Boolean(formik.errors.email));
+console.log(formik.errors.email);
 
   return (
     <div>
@@ -63,7 +74,7 @@ const SignUp: React.FC = () => {
         <form onSubmit={(e)=>{e.preventDefault();console.log(formik.handleSubmit);}}>
 
           <Box sx={{ my: 2 }}>
-            <span className="h6"> Sign in</span>
+            <span className="h6"> Sign Up</span>
           </Box>
           {inputFields.map((item,i) => {
             return <>
@@ -95,21 +106,21 @@ const SignUp: React.FC = () => {
                       }}
                     />
                   }
-                  label="Remember Me"
+                  label="I agree to accept Terms of Service and Privacy Policy"
                 />
               </FormGroup>
             </Box>
-            <Box sx={{ display: "flex" }}>
+            {/* <Box sx={{ display: "flex" }}>
               <span className="smaller"> Forget Password</span>
-            </Box>
+            </Box> */}
           </Box>
           <Box>
-            <CommonButton title="Sign In" type="submit" ></CommonButton>
+            <CommonButton title="Sign Up" type="submit" ></CommonButton>
             {/* <button type="submit">dfhgkj</button> */}
           </Box>
           <Box sx={{ m: 1 }}>
-            <span className="medium">Dont'have an account</span>{" "}
-            <span className="primary-color">Sign Up</span>
+            <span className="medium">Already  have an account</span>{" "}
+            <span className="primary-color">Sign In</span>
           </Box>
         </form>
       </Box>

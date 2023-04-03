@@ -1,0 +1,47 @@
+.modal__main {
+  background: #ffffff;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+}
+
+.h6 {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 36px;
+  color: #2d2f55;
+}
+
+.smaller {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 180%;
+  /* identical to box height, or 29px */
+
+  display: flex;
+  align-items: center;
+
+  /* Title text */
+
+  color: #2d2f55;
+}
+
+.medium {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  /* identical to box height */
+
+  /* Body text */
+
+  color: #68686a;
+}
+
+.primary-color{
+    color: #F84072;
+}
